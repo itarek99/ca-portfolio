@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Heading />
-      <main className='font-roboto relative bg-[#F7F9FF] xl:bg-gradient-to-r from-[#FCFCFC] from-[33%] 2xl:from-[38.5%]  via-[#F7F9FF] via-[33%] 2xl:via-[38.5%] to-[#F7F9FF] to-100% pb-16 pt-12'>
+      <main className='font-roboto relative bg-[#F7F9FF] xl:bg-gradient-to-r from-[#FCFCFC] from-[36%] 2xl:from-[40%]  via-[#F7F9FF] via-[36%] 2xl:via-[40%] to-[#F7F9FF] to-100% pb-16 pt-12'>
         <div className='container mx-auto px-4 xl:px-0 grid grid-cols-12'>
           <div className='hidden lg:block col-span-4'>
             <ServiceList imageBox={imageBox} />

@@ -19,6 +19,8 @@ const ServiceList = ({ imageBox }) => {
 
   return (
     <div>
+      <div className='font-semibold text-2xl text-[#2C2C2C] mb-3'>Services</div>
+
       {services.map((service, index) => (
         <div key={index} className='border-b border-solid border-[#EEEDF6]'>
           <input

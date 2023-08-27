@@ -28,7 +28,7 @@ const Gallery = ({ imageBox }) => {
         {Object.keys(selectedService.difficulty).map((difficulty, index) => (
           <Tab
             key={index}
-            className='px-4 md:px-10 py-2 md:py-3 shadow-md rounded-lg focus:outline-none capitalize'
+            className='flex-grow lg:flex-grow-0 px-4 md:px-10 py-2 md:py-3 shadow-md rounded-lg focus:outline-none capitalize'
             as={Fragment}
           >
             {({ selected }) => (
@@ -38,7 +38,7 @@ const Gallery = ({ imageBox }) => {
         ))}
       </Tab.List>
 
-      <div className='mt-12'>
+      <div className='mt-8 lg:mt-12'>
         <p className='capitalize text-3xl font-medium text-[#383838]'>
           {Object.keys(selectedService.difficulty)[index]}{' '}
           <a href='#' className='text-base font-light border-b border-tertiary pb-0.25 text-tertiary'>
@@ -59,7 +59,7 @@ const Gallery = ({ imageBox }) => {
                   ></div>
                 </div>
               )}
-              <div className='grid grid-cols-2 gap-6'>
+              <div className='grid grid-cols-2 gap-6 z-10'>
                 <img
                   ref={imageBox}
                   style={imageLoading ? {} : { display: 'none' }}

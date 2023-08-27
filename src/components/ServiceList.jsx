@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import services from '../data/portfolio';
 import { setImageLoading, setLoaderHeight, setSelectedService } from '../features/portfolioSlice';
@@ -6,10 +5,6 @@ import { setImageLoading, setLoaderHeight, setSelectedService } from '../feature
 const ServiceList = ({ imageBox }) => {
   const dispatch = useDispatch();
   const { selectedService } = useSelector((state) => state.portfolio);
-
-  useEffect(() => {
-    dispatch(setSelectedService(services[0]));
-  }, [dispatch]);
 
   const handleServiceChange = (currentService) => {
     dispatch(setLoaderHeight((imageBox?.current?.clientHeight + 10) * 2));

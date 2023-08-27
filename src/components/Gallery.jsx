@@ -24,11 +24,11 @@ const Gallery = ({ imageBox }) => {
 
   return (
     <Tab.Group onChange={handleDifficultyChange}>
-      <Tab.List className='flex gap-4 md:gap-6 justify-center lg:justify-start'>
+      <Tab.List className='flex gap-4 md:gap-6 justify-center lg:justify-start '>
         {Object.keys(selectedService.difficulty).map((difficulty, index) => (
           <Tab
             key={index}
-            className='flex-grow lg:flex-grow-0 px-4 md:px-10 py-2 md:py-3 shadow-md rounded-lg focus:outline-none capitalize'
+            className='z-10 flex-grow lg:flex-grow-0 px-4 md:px-10 py-2 md:py-3 shadow-md rounded-lg focus:outline-none capitalize'
             as={Fragment}
           >
             {({ selected }) => (

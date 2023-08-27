@@ -28,7 +28,7 @@ const ServiceList = ({ imageBox }) => {
             type='radio'
             className='hidden'
           />
-          <label htmlFor={service.name} className={`flex items-center py-4  xl:cursor-pointer select-none font-roboto`}>
+          <label htmlFor={service.name} className={`flex items-center py-3  xl:cursor-pointer select-none font-roboto`}>
             <span
               className={`w-4 h-4 rounded-full mr-3 border-2 !border-solid ${
                 selectedService.name === service.name ? 'border-tertiary bg-tertiary' : 'border-grey'

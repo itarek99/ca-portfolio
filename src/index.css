@@ -23,3 +23,13 @@ input[type='number'] {
 .custom-quote-shape {
   clip-path: polygon(0 75%, 100% 0, 100% 100%, 0% 100%);
 }
+
+#gallery-shape {
+  clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 100%);
+}
+
+@media (min-width: 1024px) {
+  #gallery-shape {
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 60%);
+  }
+}

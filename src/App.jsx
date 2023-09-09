@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import dotMatrix from './assets/dotMatrix.svg';
 import ellipse from './assets/ellipse.svg';
+import Award from './components/Award';
 import CustomQuote from './components/CustomQuote';
 import Gallery from './components/Gallery';
 import Heading from './components/Heading';
@@ -46,6 +47,7 @@ function App() {
         ></div>
       </section>
       <Testimonials />
+      <Award />
       <CustomQuote />
     </>
   );

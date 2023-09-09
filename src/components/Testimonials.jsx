@@ -7,18 +7,18 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 const Testimonials = () => {
   const swiperRef = useRef();
   return (
-    <div className='container mx-auto mt-20'>
+    <div className='container mx-auto mt-12 lg:mt-20'>
       <div className='flex flex-col items-center gap-2 justify-center'>
         <h2 className='text-2xl xl:text-4xl font-semibold relative font-roboto'>
           What Out <span className='text-orange-500'>Client</span> Says
         </h2>
-        <p className='text-gray-500 text-base font-roboto'>
+        <p className='text-gray-400 text-sm lg:text-base font-roboto text-center'>
           Hear From Those Who Have Benefited from Our Professional Photo Editing Services.
         </p>
       </div>
-      <div className='mt-12 relative'>
+      <div className='mt-8 lg:mt-12 relative'>
         <Swiper
-          className='max-w-2xl'
+          className='max-w-3xl'
           loop
           centeredSlides={true}
           autoplay={{
@@ -32,15 +32,15 @@ const Testimonials = () => {
           // modules={[Autoplay]}
         >
           <SwiperSlide className=''>
-            <div className='flex flex-col items-center pb-16'>
+            <div className='flex flex-col items-center lg:pb-20'>
               <div className=''>
                 <img
-                  className='h-28 w-28 rounded-full overflow-hidden'
+                  className='h-20 w-20 lg:h-28 lg:w-28 rounded-full overflow-hidden'
                   src='https://images.pexels.com/photos/428328/pexels-photo-428328.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
                   alt='Sam Altman'
                 />
               </div>
-              <p className='font-bold text-2xl mt-5'>Sam Altman</p>
+              <p className='font-bold text-2xl mt-3 lg:mt-5'>Sam Altman</p>
               <p className='text-gray-500'>Owner of Yellow Man</p>
               <div className='flex gap-3 mt-5'>
                 <span>
@@ -84,16 +84,16 @@ const Testimonials = () => {
                   </svg>
                 </span>
               </div>
-              <div className='relative'>
-                <p className='text-center font-roboto text-gray-700 mt-6 max-w-2xl'>
+              <div className='relative mt-6'>
+                <p className='mt-8 lg:mt-0 text-sm px-4 lg:px-0 lg:text-base text-center font-roboto text-gray-700  max-w-2xl'>
                   I was nervous about having my portrait edited, but 'Clipping Path CA' put me at ease and worked with
                   me to make sure I was happy with the results. They truly exceeded my expectations!
                 </p>
-                <div className='absolute -top-16 -left-16'>
-                  <FaQuoteLeft className='text-7xl text-gray-100' />
+                <div className='hidden lg:block absolute -left-11 -top-20'>
+                  <FaQuoteLeft className='text-7xl text-gray-50' />
                 </div>
-                <div className='absolute -bottom-16 -right-16'>
-                  <FaQuoteRight className='text-7xl text-gray-100' />
+                <div className='hidden lg:block absolute -right-11 '>
+                  <FaQuoteRight className='text-7xl text-gray-50' />
                 </div>
               </div>
             </div>
@@ -103,18 +103,27 @@ const Testimonials = () => {
           <SwiperSlide>Slide 4</SwiperSlide>
         </Swiper>
 
-        <div className='absolute bottom-24 left-32  '>
+        <div className='absolute top-44 lg:top-64 left-0 lg:left-16 xl:left-40'>
           <button
             onClick={() => {
               swiperRef.current.slidePrev();
             }}
-            className='!cursor-pointer p-4'
+            className='!cursor-pointer p-4 flex z-10'
           >
-            <BsArrowLeft />
+            <div className='h-8 w-8 bg-[#FFE8DB] rounded-full'></div>
+            <BsArrowLeft className='text-3xl text-gray-800 -ml-[22px] z-20' />
           </button>
         </div>
-        <div className='absolute'>
-          <BsArrowRight />
+        <div className='absolute top-44 lg:top-64 right-0 lg:right-16 xl:right-40'>
+          <button
+            onClick={() => {
+              swiperRef.current.slideNext();
+            }}
+            className='!cursor-pointer p-4 flex z-10'
+          >
+            <BsArrowRight className='text-3xl text-gray-800 z-20' />
+            <div className='h-8 w-8 bg-[#FFE8DB] rounded-full -ml-[22px]'></div>
+          </button>
         </div>
       </div>
     </div>

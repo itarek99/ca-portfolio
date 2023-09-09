@@ -14,7 +14,7 @@ const Heading = () => {
         </h2>
       </div>
 
-      <p className='font-roboto px-3 text-bases max-w-4xl mx-auto mt-4 xl:mt-7 xl:text-lg text-gray-500 text-center'>
+      <p className='font-roboto px-3 text-bases max-w-4xl mx-auto mt-4 xl:mt-7 xl:text-lg text-gray-400 text-center'>
         Explore our diverse collection of photo editing projects,{' '}
         <span className='text-tertiary bg-tertiary/5'>showcasing our expertise</span> in clipping path, retouching,
         color correction, manipulation, and more. See{' '}

@@ -1,9 +1,9 @@
 const Award = () => {
   return (
-    <div className='container mx-auto mt-12 lg:mt-20'>
+    <div className='container mx-auto mt-8 lg:mt-16'>
       <div className=' flex flex-col items-center gap-2 justify-center'>
         <h2 className='text-2xl relative xl:text-4xl font-semibold  font-roboto'>
-          <span className='text-orange-500'>Award</span> And <span className='text-orange-500'>Recognition</span>
+          <span className='text-orange-500'>Award</span> and <span className='text-orange-500'>Recognition</span>
           <img
             className='h-6 absolute top-2 -left-10 lg:-left-16 -rotate-[20deg]'
             src='https://clippingpathca.com/wp-content/reactpress/apps/ca-portfolio/icons/trophy.png'

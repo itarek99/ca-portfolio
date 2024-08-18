@@ -2,9 +2,9 @@ const Heading = () => {
   return (
     <section className='font-roboto container mx-auto py-20 relative'>
       <div className='flex justify-center'>
-        <h2 className='text-3xl xl:text-5xl font-semibold relative font-roboto'>
+        <h1 className='text-3xl xl:text-5xl font-semibold relative font-roboto'>
           Photo Editing <span className='text-orange-500'>Portfolio</span>
-        </h2>
+        </h1>
       </div>
 
       <p className='font-roboto px-3 text-bases max-w-4xl mx-auto mt-4 xl:mt-7 xl:text-lg text-gray-400 text-center'>

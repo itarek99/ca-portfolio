@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import services from '../data/portfolio';
-import { setImageLoading, setLoaderHeight, setSelectedService } from '../features/portfolioSlice';
+import { setImageLoading, setIndex, setLoaderHeight, setSelectedService } from '../features/portfolioSlice';
 
 const ServiceList = ({ imageBox }) => {
   const dispatch = useDispatch();
   const { selectedService } = useSelector((state) => state.portfolio);
 
   const handleServiceChange = (currentService) => {
+    dispatch(setIndex(0));
     dispatch(setLoaderHeight((imageBox?.current?.clientHeight + 10) * 2));
     dispatch(setSelectedService(currentService));
     dispatch(setImageLoading(false));
@@ -17,7 +18,7 @@ const ServiceList = ({ imageBox }) => {
       <div className='font-semibold text-2xl text-[#2C2C2C] mb-3'>Services</div>
 
       {services.map((service, index) => (
-        <div key={index} className='border-b border-solid border-[#EEEDF6]'>
+        <div key={index} className='divide-y divide-solid divide-[#EEEDF6]'>
           <input
             checked={selectedService.name === service.name}
             onChange={() => {

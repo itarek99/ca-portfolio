@@ -20,8 +20,8 @@ function App() {
   return (
     <>
       <Heading />
-      <section className='font-roboto relative bg-[#F7F9FF] xl:bg-gradient-to-r from-[#FCFCFC] from-[36%] 2xl:from-[40%]  via-[#F7F9FF] via-[36%] 2xl:via-[40%] to-[#F7F9FF] to-100% pt-12'>
-        <div className='container mx-auto px-4 xl:px-0 grid grid-cols-12'>
+      <section className='font-roboto relative bg-[#F7F9FF] xl:bg-gradient-to-r from-[#FCFCFC] from-[36%] xl:from-[40%]  via-[#F7F9FF] via-[36%] xl:via-[40%] to-[#F7F9FF] to-100% pt-12'>
+        <div className='container mx-auto px-4 lg:px-2.5 grid grid-cols-12'>
           <div className=' lg:hidden col-span-12 mb-8'>
             <div className='font-semibold text-2xl text-[#2C2C2C] mb-3'>Services</div>
             <ServiceDropdown imageBox={imageBox} />
@@ -47,7 +47,7 @@ function App() {
         </div>
         <div
           id='gallery-shape'
-          className='absolute  left-0 lg:left-[36%] 2xl:left-[40%] bg-gradient-to-r from-[#FEE6F9] to-transparent top-3/4 lg:top-0 bottom-0 lg:bottom-80 right-[20%]'
+          className='absolute left-0 lg:left-[36%] xl:left-[40%] bg-gradient-to-r from-[#FEE6F9] to-transparent top-3/4 lg:top-0 bottom-0 right-[20%]'
         ></div>
       </section>
       <Testimonials />

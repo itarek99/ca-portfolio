@@ -1,7 +1,7 @@
 import { Tab } from '@headlessui/react';
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setImageLoading, setLoaderHeight } from '../features/portfolioSlice';
+import { setImageLoading, setIndex, setLoaderHeight } from '../features/portfolioSlice';
 
 const difficultyLevel = {
   basic: 1,
@@ -11,12 +11,11 @@ const difficultyLevel = {
 
 const Gallery = ({ imageBox }) => {
   const dispatch = useDispatch();
-  const [index, setIndex] = useState(0);
-  const { imageLoading, loaderHeight, selectedService } = useSelector((state) => state.portfolio);
+  // const [index, setIndex] = useState(0);
+  const { loaderHeight, selectedService, index } = useSelector((state) => state.portfolio);
 
   const handleDifficultyChange = (index) => {
-    console.log(selectedService);
-    setIndex(index);
+    dispatch(setIndex(index));
     dispatch(setLoaderHeight((imageBox?.current?.clientHeight + 10) * 2));
     dispatch(setImageLoading(false));
   };
@@ -37,7 +36,7 @@ const Gallery = ({ imageBox }) => {
   }
 
   return (
-    <Tab.Group onChange={handleDifficultyChange}>
+    <Tab.Group selectedIndex={index} onChange={handleDifficultyChange}>
       <Tab.List className='flex gap-4 md:gap-6 justify-center lg:justify-start '>
         {Object.keys(selectedService.difficulty).map((difficulty, index) => (
           <Tab
@@ -46,22 +45,33 @@ const Gallery = ({ imageBox }) => {
             as={Fragment}
           >
             {({ selected }) => (
-              <button className={selected ? 'bg-secondary text-white' : 'bg-white text-black'}>{difficulty}</button>
+              <button
+                className={
+                  selected
+                    ? 'bg-secondary text-white !border-none hover:!bg-secondary hover:!text-white focus:!bg-secondary focus:!text-white'
+                    : 'bg-white text-black !border-none hover:!bg-secondary hover:!text-white focus:!bg-secondary focus:!text-white'
+                }
+              >
+                {difficulty}
+              </button>
             )}
           </Tab>
         ))}
       </Tab.List>
 
-      <div className='mt-8 lg:mt-12'>
+      <div className='mt-6 lg:mt-8'>
         <p className='capitalize text-3xl font-medium text-[#383838]'>
           {Object.keys(selectedService.difficulty)[index]}{' '}
-          <a href='#' className='text-base font-light border-b border-tertiary pb-0.25 text-tertiary'>
+          <a
+            href='https://clippingpathca.com/order/'
+            className='text-base font-light border-b border-tertiary pb-0.25 text-tertiary'
+          >
             Start From ${selectedService.difficulty[Object.keys(selectedService.difficulty)[index]].pricing[0].price}
           </a>
         </p>
       </div>
 
-      <Tab.Panels className='mt-10'>
+      <Tab.Panels className='mt-4 flex'>
         {Object.keys(selectedService.difficulty).map((difficulty, index) => (
           <Tab.Panel key={index}>
             <div className='flex items-center flex-col '>
@@ -73,14 +83,24 @@ const Gallery = ({ imageBox }) => {
                   ></div>
                 </div>
               )}
-              <div className='flex items-center flex-col'>
-                <div className='grid grid-cols-3 gap-6 z-10'>
+
+              <div className='grid grid-cols-4 gap-10 z-10 '>
+                <div className='col-span-4 lg:col-span-3 min-h-[200px] lg:min-w-[494px] bg-white rounded-xl p-4 '>
                   <img
                     ref={imageBox}
-                    className='w-full object-contain col-span-3 lg:col-span-2 min-h-0 border border-solid border-gray-400'
+                    className='w-full lg:h-64 object-cover min-h-0 border border-solid border-gray-800'
                     src={`https://clippingpathca.com/wp-content/reactpress/apps/ca-portfolio/services/${selectedService.id}/${difficultyLevel[difficulty]}.png`}
                     alt={selectedService.name}
                   />
+                </div>
+                <div className='col-span-4 lg:col-span-3 mb-4 lg:mb-10'>
+                  <a
+                    className='!bg-[#2970FB] px-6 py-2 rounded-full text-white hover:!text-white'
+                    href={selectedService.link}
+                    target='_blank'
+                  >
+                    See More
+                  </a>
                 </div>
               </div>
             </div>

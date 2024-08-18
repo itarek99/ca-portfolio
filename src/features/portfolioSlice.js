@@ -4,6 +4,7 @@ const initialState = {
   selectedService: {},
   imageLoading: false,
   loaderHeight: 0,
+  index: 0,
 };
 
 export const portfolioSlice = createSlice({
@@ -19,9 +20,12 @@ export const portfolioSlice = createSlice({
     setLoaderHeight: (state, action) => {
       state.loaderHeight = action.payload;
     },
+    setIndex: (state, action) => {
+      state.index = action.payload;
+    },
   },
 });
 
-export const { setSelectedService, setImageLoading, setLoaderHeight } = portfolioSlice.actions;
+export const { setSelectedService, setImageLoading, setLoaderHeight, setIndex } = portfolioSlice.actions;
 
 export default portfolioSlice.reducer;

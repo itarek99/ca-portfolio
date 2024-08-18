@@ -1,9 +1,9 @@
 const CustomQuote = () => {
   return (
-    <div className='bg-[#F7F9FF] relative'>
+    <div className='bg-[#F7F9FF] relative px-4 lg:px-0'>
       <div className='container mx-auto mt-12'>
         <div className='flex flex-col lg:flex-row justify-between py-12'>
-          <p className='text-gray-800 font-bold font-roboto text-xl md:text-3xl lg:leading-10  z-10'>
+          <p className='text-gray-800 font-bold font-roboto text-lg md:text-3xl lg:leading-10  z-10'>
             Reach out for high-quality photo editing.{' '}
             <span className='text-blue-600 bg-blue-600/5 px-1'>
               <br className='block lg:hidden' />

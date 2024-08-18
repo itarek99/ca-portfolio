@@ -5,7 +5,7 @@ import App from './App.jsx';
 import { store } from './app/store.js';
 import './index.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById('portfolio')).render(
   <React.StrictMode>
     <Provider store={store}>
       <App />

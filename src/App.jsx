@@ -1,7 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import dotMatrix from './assets/dotMatrix.svg';
-import ellipse from './assets/ellipse.svg';
 import Award from './components/Award';
 import CustomQuote from './components/CustomQuote';
 import Gallery from './components/Gallery';
@@ -31,19 +29,25 @@ function App() {
           <div className='hidden lg:block col-span-4'>
             <ServiceList imageBox={imageBox} />
           </div>
-          <div className='col-span-12 lg:col-span-8 lg:ml-20 mb-24 lg:mb-0'>
+          <div className='col-span-12 lg:col-span-8 lg:ml-20 mb-4 lg:mb-0'>
             <Gallery imageBox={imageBox} />
           </div>
         </div>
         <div className='hidden xl:block absolute top-0 right-0'>
-          <img src={dotMatrix} alt='dot matrix' />
+          <img
+            src='https://clippingpathca.com/wp-content/reactpress/apps/ca-portfolio/icons/dotMatrix.svg'
+            alt='dot matrix'
+          />
         </div>
         <div className='absolute top-0 right-0'>
-          <img src={ellipse} alt='bg ellipse' />
+          <img
+            src='https://clippingpathca.com/wp-content/reactpress/apps/ca-portfolio/icons/ellipse.svg'
+            alt='bg ellipse'
+          />
         </div>
         <div
           id='gallery-shape'
-          className='absolute left-0 lg:left-[36%] 2xl:left-[40%] bg-gradient-to-r from-[#FEE6F9] to-transparent top-3/4 lg:top-0 bottom-0 lg:bottom-52 right-[20%]'
+          className='absolute  left-0 lg:left-[36%] 2xl:left-[40%] bg-gradient-to-r from-[#FEE6F9] to-transparent top-3/4 lg:top-0 bottom-0 lg:bottom-80 right-[20%]'
         ></div>
       </section>
       <Testimonials />

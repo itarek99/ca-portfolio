@@ -3,12 +3,19 @@ import { Fragment, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setImageLoading, setLoaderHeight } from '../features/portfolioSlice';
 
+const difficultyLevel = {
+  basic: 1,
+  medium: 2,
+  complicated: 3,
+};
+
 const Gallery = ({ imageBox }) => {
   const dispatch = useDispatch();
   const [index, setIndex] = useState(0);
   const { imageLoading, loaderHeight, selectedService } = useSelector((state) => state.portfolio);
 
   const handleDifficultyChange = (index) => {
+    console.log(selectedService);
     setIndex(index);
     dispatch(setLoaderHeight((imageBox?.current?.clientHeight + 10) * 2));
     dispatch(setImageLoading(false));
@@ -19,7 +26,14 @@ const Gallery = ({ imageBox }) => {
   }
 
   if (!selectedService.difficulty) {
-    return <div className='text-2xl'>Image Will Added Soon...!</div>;
+    return (
+      <div className='text-xl '>
+        <a className='text-secondary' href='https://clippingpathca.com/contact-with-us/'>
+          Request{' '}
+        </a>
+        A Demo.
+      </div>
+    );
   }
 
   return (
@@ -50,8 +64,8 @@ const Gallery = ({ imageBox }) => {
       <Tab.Panels className='mt-10'>
         {Object.keys(selectedService.difficulty).map((difficulty, index) => (
           <Tab.Panel key={index}>
-            <div className='flex items-center flex-col'>
-              {imageLoading ? null : (
+            <div className='flex items-center flex-col '>
+              {true ? null : (
                 <div style={{ height: loaderHeight + 'px' }} className='flex items-center justify-center'>
                   <div
                     className='inline-block h-12 w-12 animate-spin rounded-full border-2 border-solid border-primary border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]'
@@ -59,47 +73,15 @@ const Gallery = ({ imageBox }) => {
                   ></div>
                 </div>
               )}
-              <div className='grid grid-cols-2 gap-6 z-10'>
-                <img
-                  ref={imageBox}
-                  style={imageLoading ? {} : { display: 'none' }}
-                  onLoad={() => {
-                    dispatch(setImageLoading(true));
-                  }}
-                  className='w-full object-contain min-h-0 border border-solid border-gray-400'
-                  src={selectedService?.difficulty?.[difficulty]?.thumbnail}
-                  alt={selectedService.name}
-                />
-                <img
-                  ref={imageBox}
-                  style={imageLoading ? {} : { display: 'none' }}
-                  onLoad={() => {
-                    dispatch(setImageLoading(true));
-                  }}
-                  className='w-full object-contain min-h-0 border border-solid border-gray-400'
-                  src={selectedService?.difficulty?.[difficulty]?.thumbnail}
-                  alt={selectedService.name}
-                />
-                <img
-                  ref={imageBox}
-                  style={imageLoading ? {} : { display: 'none' }}
-                  onLoad={() => {
-                    dispatch(setImageLoading(true));
-                  }}
-                  className='w-full object-contain min-h-0 border border-solid border-gray-400'
-                  src={selectedService?.difficulty?.[difficulty]?.thumbnail}
-                  alt={selectedService.name}
-                />
-                <img
-                  ref={imageBox}
-                  style={imageLoading ? {} : { display: 'none' }}
-                  onLoad={() => {
-                    dispatch(setImageLoading(true));
-                  }}
-                  className='w-full object-contain min-h-0 border border-solid border-gray-400'
-                  src={selectedService?.difficulty?.[difficulty]?.thumbnail}
-                  alt={selectedService.name}
-                />
+              <div className='flex items-center flex-col'>
+                <div className='grid grid-cols-3 gap-6 z-10'>
+                  <img
+                    ref={imageBox}
+                    className='w-full object-contain col-span-3 lg:col-span-2 min-h-0 border border-solid border-gray-400'
+                    src={`https://clippingpathca.com/wp-content/reactpress/apps/ca-portfolio/services/${selectedService.id}/${difficultyLevel[difficulty]}.png`}
+                    alt={selectedService.name}
+                  />
+                </div>
               </div>
             </div>
           </Tab.Panel>
